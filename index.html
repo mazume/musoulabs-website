@@ -7,111 +7,145 @@
 <meta name="description" content="Musou LLC is an independent software studio in Chiba, Japan, building thoughtfully crafted apps for iOS.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Shippori+Mincho:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --paper: #ffffff;
-    --ink: #101010;
-    --ink-soft: #5c5a56;
-    --rule: #dad7d0;
-    --seal: #b3281e;
-    --serif: "Cormorant Garamond", "Shippori Mincho", Georgia, serif;
-    --mincho: "Shippori Mincho", "Cormorant Garamond", "Hiragino Mincho ProN", serif;
+    --graphite: #17191d;
+    --porcelain: #eff1f2;
+    --mist: #9aa0a6;
+    --hairline: #d5d9dc;
+    --now: #cc2936;
+    --sans: "Zen Kaku Gothic New", "Hiragino Kaku Gothic ProN", "Yu Gothic", system-ui, sans-serif;
+    --mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
   }
   * { box-sizing: border-box; }
   html { scroll-behavior: smooth; }
   body {
     margin: 0;
-    background: var(--paper);
-    color: var(--ink);
-    font-family: var(--serif);
-    font-size: 1.25rem;
-    line-height: 1.65;
+    background: var(--porcelain);
+    color: var(--graphite);
+    font-family: var(--sans);
+    font-size: 1.05rem;
+    line-height: 1.8;
     -webkit-font-smoothing: antialiased;
   }
   a { color: inherit; text-decoration: none; }
-  a:hover { text-decoration: underline; text-underline-offset: 0.2em; }
-  a:focus-visible { outline: 2px solid var(--seal); outline-offset: 4px; }
+  a:hover { text-decoration: underline; text-underline-offset: 0.25em; }
+  a:focus-visible { outline: 2px solid var(--now); outline-offset: 4px; }
 
-  .wrap { max-width: 42rem; margin: 0 auto; padding: 0 1.5rem; }
+  .wrap { max-width: 46rem; margin: 0 auto; padding: 0 1.5rem; }
+
+  .label {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.34em;
+    text-transform: uppercase;
+    color: var(--mist);
+  }
 
   /* Header */
   header {
     display: flex; justify-content: space-between; align-items: baseline;
     padding: 2rem 0;
   }
-  .brand { font-family: var(--mincho); font-size: 1.1rem; letter-spacing: 0.04em; }
-  nav a { font-size: 1rem; margin-left: 1.6rem; color: var(--ink-soft); }
+  .brand { font-weight: 500; letter-spacing: 0.12em; font-size: 0.95rem; }
+  nav a {
+    font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--mist); margin-left: 1.5rem;
+  }
+  nav a:hover { color: var(--graphite); }
 
   /* Hero */
-  .hero { padding: 6rem 0 7rem; position: relative; }
-  .hero .mu {
-    font-family: var(--mincho);
-    font-size: clamp(8rem, 24vw, 15rem);
-    line-height: 1;
-    color: var(--seal);
-    margin: 0 0 1.2rem -0.06em;
-    font-weight: 400;
+  .hero { padding: 5rem 0 6rem; }
+  .ticks {
+    display: flex; align-items: flex-end; gap: 0.55rem;
+    height: 5.5rem; margin-bottom: 3rem;
   }
+  .tick { width: 2px; background: var(--graphite); flex: none; }
+  .tick.now { background: var(--now); }
   .hero h1 {
-    font-weight: 400;
-    font-size: clamp(2rem, 5vw, 3rem);
-    line-height: 1.15;
+    font-weight: 700;
+    font-size: clamp(2rem, 5.5vw, 3.1rem);
+    line-height: 1.2;
+    letter-spacing: 0.01em;
     margin: 0 0 1.4rem;
-    letter-spacing: -0.01em;
   }
-  .hero p { max-width: 32rem; color: var(--ink-soft); margin: 0; }
+  .hero p { max-width: 32rem; color: #4b5157; margin: 0; }
 
   /* Sections */
-  section { padding: 3.5rem 0; border-top: 1px solid var(--rule); }
-  h2 {
-    font-family: var(--mincho);
-    font-weight: 500;
-    font-size: 1.05rem;
-    letter-spacing: 0.06em;
-    margin: 0 0 1.6rem;
-    color: var(--ink-soft);
+  section {
+    padding: 3.5rem 0;
+    border-top: 1px solid var(--hairline);
+    display: grid; grid-template-columns: 9rem 1fr; gap: 1.5rem;
   }
-  section p { margin: 0 0 1.2em; max-width: 36rem; }
+  section > .label { padding-top: 0.35rem; }
+  section p { margin: 0 0 1.1em; }
   section p:last-child { margin-bottom: 0; }
 
-  .names { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin: 2rem 0 0; }
-  .names div { border-left: 2px solid var(--seal); padding-left: 1rem; }
-  .names .kanji { font-family: var(--mincho); font-size: 1.9rem; line-height: 1.2; display: block; }
-  .names .read { font-size: 1rem; color: var(--ink-soft); display: block; }
+  .names { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 1.8rem; }
+  .names div { border-top: 2px solid var(--graphite); padding-top: 0.8rem; }
+  .names .kanji { font-weight: 700; font-size: 1.6rem; line-height: 1.2; display: block; letter-spacing: 0.08em; }
+  .names .read { font-family: var(--mono); font-size: 0.75rem; color: var(--mist); display: block; margin-top: 0.3rem; }
 
-  .product { display: flex; gap: 1.5rem; align-items: flex-start; }
-  .product .icon {
-    flex: none; width: 4.5rem; height: 4.5rem; border-radius: 1.1rem;
-    background: var(--ink); color: var(--paper);
-    display: grid; place-items: center;
-    font-family: var(--mincho); font-size: 1.6rem;
+  .product h3 { font-weight: 700; font-size: 1.5rem; margin: 0 0 0.2rem; letter-spacing: 0.02em; }
+  .product .status {
+    font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.12em;
+    color: var(--now); margin-bottom: 1.2rem;
   }
-  .product h3 { font-weight: 500; font-size: 1.5rem; margin: 0 0 0.3rem; }
-  .product .status { font-size: 1rem; color: var(--seal); font-style: italic; }
+  .product .status::before {
+    content: ""; display: inline-block; width: 6px; height: 6px;
+    background: var(--now); border-radius: 50%; margin-right: 0.6em; vertical-align: 0.1em;
+  }
 
-  dl { margin: 0; display: grid; grid-template-columns: 9rem 1fr; row-gap: 0.7rem; column-gap: 1.5rem; }
-  dt { color: var(--ink-soft); font-size: 1.05rem; }
+  dl { margin: 0; display: grid; grid-template-columns: 8rem 1fr; row-gap: 0.8rem; column-gap: 1.5rem; }
+  dt { font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.1em; color: var(--mist); padding-top: 0.25rem; }
   dd { margin: 0; }
 
+  .mail { font-family: var(--mono); font-size: 1.1rem; }
+
   footer {
-    border-top: 1px solid var(--rule);
+    border-top: 1px solid var(--hairline);
     padding: 2.5rem 0 3.5rem;
-    font-size: 1rem; color: var(--ink-soft);
     display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem;
   }
+  footer span { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.16em; color: var(--mist); }
 
-  @media (max-width: 560px) {
-    body { font-size: 1.1rem; }
-    .hero { padding: 4rem 0 5rem; }
-    .names { grid-template-columns: 1fr; gap: 1rem; }
-    dl { grid-template-columns: 1fr; row-gap: 0.2rem; }
+  @media (max-width: 600px) {
+    section { grid-template-columns: 1fr; gap: 1rem; }
+    .names { grid-template-columns: 1fr; }
+    dl { grid-template-columns: 1fr; row-gap: 0.1rem; }
     dt { margin-top: 0.8rem; }
-    nav a { margin-left: 1rem; }
+    nav a { margin-left: 0.9rem; letter-spacing: 0.1em; }
+    .ticks { gap: 0.35rem; height: 4rem; }
+    .hero { padding: 3.5rem 0 4.5rem; }
   }
   @media (prefers-reduced-motion: no-preference) {
-    .hero .mu { animation: ink 1.4s ease-out both; }
-    @keyframes ink { from { opacity: 0; } to { opacity: 1; } }
+    .tick { transform-origin: bottom; animation: grow 0.6s ease-out both; }
+    .tick:nth-child(1) { animation-delay: 0.000s; }
+    .tick:nth-child(2) { animation-delay: 0.035s; }
+    .tick:nth-child(3) { animation-delay: 0.070s; }
+    .tick:nth-child(4) { animation-delay: 0.105s; }
+    .tick:nth-child(5) { animation-delay: 0.140s; }
+    .tick:nth-child(6) { animation-delay: 0.175s; }
+    .tick:nth-child(7) { animation-delay: 0.210s; }
+    .tick:nth-child(8) { animation-delay: 0.245s; }
+    .tick:nth-child(9) { animation-delay: 0.280s; }
+    .tick:nth-child(10) { animation-delay: 0.315s; }
+    .tick:nth-child(11) { animation-delay: 0.350s; }
+    .tick:nth-child(12) { animation-delay: 0.385s; }
+    .tick:nth-child(13) { animation-delay: 0.420s; }
+    .tick:nth-child(14) { animation-delay: 0.455s; }
+    .tick:nth-child(15) { animation-delay: 0.490s; }
+    .tick:nth-child(16) { animation-delay: 0.525s; }
+    .tick:nth-child(17) { animation-delay: 0.560s; }
+    .tick:nth-child(18) { animation-delay: 0.595s; }
+    .tick:nth-child(19) { animation-delay: 0.630s; }
+    .tick:nth-child(20) { animation-delay: 0.665s; }
+    .tick:nth-child(21) { animation-delay: 0.700s; }
+    .tick:nth-child(22) { animation-delay: 0.735s; }
+    .tick:nth-child(23) { animation-delay: 0.770s; }
+    .tick:nth-child(24) { animation-delay: 0.805s; }
+    @keyframes grow { from { transform: scaleY(0); } to { transform: scaleY(1); } }
   }
 </style>
 </head>
@@ -129,38 +163,62 @@
   </header>
 
   <div class="hero">
-    <p class="mu" aria-hidden="true">無</p>
+    <div class="ticks" aria-hidden="true">
+      <span class="tick" style="height:12%"></span>
+      <span class="tick" style="height:14%"></span>
+      <span class="tick" style="height:16%"></span>
+      <span class="tick" style="height:18%"></span>
+      <span class="tick" style="height:20%"></span>
+      <span class="tick" style="height:22%"></span>
+      <span class="tick" style="height:24%"></span>
+      <span class="tick" style="height:26%"></span>
+      <span class="tick" style="height:28%"></span>
+      <span class="tick" style="height:30%"></span>
+      <span class="tick" style="height:32%"></span>
+      <span class="tick" style="height:34%"></span>
+      <span class="tick" style="height:36%"></span>
+      <span class="tick" style="height:38%"></span>
+      <span class="tick" style="height:40%"></span>
+      <span class="tick" style="height:42%"></span>
+      <span class="tick" style="height:44%"></span>
+      <span class="tick now" style="height:66%"></span>
+      <span class="tick" style="height:48%"></span>
+      <span class="tick" style="height:50%"></span>
+      <span class="tick" style="height:52%"></span>
+      <span class="tick" style="height:54%"></span>
+      <span class="tick" style="height:56%"></span>
+      <span class="tick" style="height:58%"></span>
+    </div>
     <h1>Creating from nothing.</h1>
     <p>Musou is an independent software studio in Chiba, Japan. We make small, carefully built apps for iOS, and we take the time to get them right.</p>
   </div>
 
   <section id="about">
-    <h2>About</h2>
-    <p>We started Musou to make a place for creation — somewhere to work with a clear mind, begin from nothing, and let each product take the time it needs.</p>
-    <p>We believe people are happiest with the things they love, and that this is as true of an app as of anything else. So we try to build products with a taste of their own: the kind that comes from a studio's philosophy and accumulated work, and cannot be copied.</p>
-    <p>The name Musou carries three meanings at once.</p>
-    <div class="names">
-      <div><span class="kanji">無創</span><span class="read">to create from nothing</span></div>
-      <div><span class="kanji">無双</span><span class="read">without equal</span></div>
-      <div><span class="kanji">夢想</span><span class="read">to dream</span></div>
-    </div>
-  </section>
-
-  <section id="products">
-    <h2>Products</h2>
-    <div class="product">
-      <div class="icon" aria-hidden="true">時</div>
-      <div>
-        <h3>Kairos</h3>
-        <p class="status">In development — coming to the App Store</p>
-        <p>Alarms and timers, treated as one thing: a moment you want to be told about. Kairos schedules them through AlarmKit, so they ring reliably on the Lock Screen and in the Dynamic Island even when the app is closed, and lays them out on a monthly calendar so you can see your month at a glance.</p>
-        <p>Run several timers at once, group them by what they're for, and set alarms that repeat weekly, monthly, on the second Thursday, or once a year. Everything stays on your device. No account, no server.</p>
+    <div class="label">About</div>
+    <div>
+      <p>We started Musou to make a place for creation — somewhere to work with a clear mind, begin from nothing, and let each product take the time it needs.</p>
+      <p>We believe people are happiest with the things they love, and that this is as true of an app as of anything else. So we try to build products with a taste of their own: the kind that comes from a studio's philosophy and accumulated work, and cannot be copied.</p>
+      <p>The name Musou carries three meanings at once.</p>
+      <div class="names">
+        <div><span class="kanji">無創</span><span class="read">to create from nothing</span></div>
+        <div><span class="kanji">無双</span><span class="read">without equal</span></div>
+        <div><span class="kanji">夢想</span><span class="read">to dream</span></div>
       </div>
     </div>
   </section>
 
+  <section id="products">
+    <div class="label">Products</div>
+    <div class="product">
+      <h3>Kairos</h3>
+      <div class="status">In development — coming to the App Store</div>
+      <p>Alarms and timers, treated as one thing: a moment you want to be told about. Kairos schedules them through AlarmKit, so they ring reliably on the Lock Screen and in the Dynamic Island even when the app is closed, and lays them out on a monthly calendar so you can see your month at a glance.</p>
+      <p>Run several timers at once, group them by what they're for, and set alarms that repeat weekly, monthly, on the second Thursday, or once a year. Everything stays on your device. No account, no server.</p>
+    </div>
+  </section>
+
   <section id="company">
-    <h2>Company</h2>
+    <div class="label">Company</div>
     <dl>
       <dt>Name</dt><dd>Musou LLC (Musou合同会社)</dd>
       <dt>Founded</dt><dd>March 5, 2026</dd>
@@ -170,8 +228,11 @@
   </section>
 
   <section id="contact">
-    <h2>Contact</h2>
-    <p>For anything at all, write to us at <a href="mailto:hello@musoulabs.com">hello@musoulabs.com</a>.</p>
+    <div class="label">Contact</div>
+    <div>
+      <p>For anything at all, write to us at</p>
+      <p class="mail"><a href="mailto:hello@musoulabs.com">hello@musoulabs.com</a></p>
+    </div>
   </section>
 
   <footer>
