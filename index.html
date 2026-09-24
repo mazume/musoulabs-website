@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Musou LLC — Creating from nothing</title>
+<meta name="description" content="Musou LLC is an independent software studio in Chiba, Japan, building thoughtfully crafted apps for iOS.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Shippori+Mincho:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #ffffff;
+    --ink: #101010;
+    --ink-soft: #5c5a56;
+    --rule: #dad7d0;
+    --seal: #b3281e;
+    --serif: "Cormorant Garamond", "Shippori Mincho", Georgia, serif;
+    --mincho: "Shippori Mincho", "Cormorant Garamond", "Hiragino Mincho ProN", serif;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--serif);
+    font-size: 1.25rem;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; text-decoration: none; }
+  a:hover { text-decoration: underline; text-underline-offset: 0.2em; }
+  a:focus-visible { outline: 2px solid var(--seal); outline-offset: 4px; }
+
+  .wrap { max-width: 42rem; margin: 0 auto; padding: 0 1.5rem; }
+
+  /* Header */
+  header {
+    display: flex; justify-content: space-between; align-items: baseline;
+    padding: 2rem 0;
+  }
+  .brand { font-family: var(--mincho); font-size: 1.1rem; letter-spacing: 0.04em; }
+  nav a { font-size: 1rem; margin-left: 1.6rem; color: var(--ink-soft); }
+
+  /* Hero */
+  .hero { padding: 6rem 0 7rem; position: relative; }
+  .hero .mu {
+    font-family: var(--mincho);
+    font-size: clamp(8rem, 24vw, 15rem);
+    line-height: 1;
+    color: var(--seal);
+    margin: 0 0 1.2rem -0.06em;
+    font-weight: 400;
+  }
+  .hero h1 {
+    font-weight: 400;
+    font-size: clamp(2rem, 5vw, 3rem);
+    line-height: 1.15;
+    margin: 0 0 1.4rem;
+    letter-spacing: -0.01em;
+  }
+  .hero p { max-width: 32rem; color: var(--ink-soft); margin: 0; }
+
+  /* Sections */
+  section { padding: 3.5rem 0; border-top: 1px solid var(--rule); }
+  h2 {
+    font-family: var(--mincho);
+    font-weight: 500;
+    font-size: 1.05rem;
+    letter-spacing: 0.06em;
+    margin: 0 0 1.6rem;
+    color: var(--ink-soft);
+  }
+  section p { margin: 0 0 1.2em; max-width: 36rem; }
+  section p:last-child { margin-bottom: 0; }
+
+  .names { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin: 2rem 0 0; }
+  .names div { border-left: 2px solid var(--seal); padding-left: 1rem; }
+  .names .kanji { font-family: var(--mincho); font-size: 1.9rem; line-height: 1.2; display: block; }
+  .names .read { font-size: 1rem; color: var(--ink-soft); display: block; }
+
+  .product { display: flex; gap: 1.5rem; align-items: flex-start; }
+  .product .icon {
+    flex: none; width: 4.5rem; height: 4.5rem; border-radius: 1.1rem;
+    background: var(--ink); color: var(--paper);
+    display: grid; place-items: center;
+    font-family: var(--mincho); font-size: 1.6rem;
+  }
+  .product h3 { font-weight: 500; font-size: 1.5rem; margin: 0 0 0.3rem; }
+  .product .status { font-size: 1rem; color: var(--seal); font-style: italic; }
+
+  dl { margin: 0; display: grid; grid-template-columns: 9rem 1fr; row-gap: 0.7rem; column-gap: 1.5rem; }
+  dt { color: var(--ink-soft); font-size: 1.05rem; }
+  dd { margin: 0; }
+
+  footer {
+    border-top: 1px solid var(--rule);
+    padding: 2.5rem 0 3.5rem;
+    font-size: 1rem; color: var(--ink-soft);
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem;
+  }
+
+  @media (max-width: 560px) {
+    body { font-size: 1.1rem; }
+    .hero { padding: 4rem 0 5rem; }
+    .names { grid-template-columns: 1fr; gap: 1rem; }
+    dl { grid-template-columns: 1fr; row-gap: 0.2rem; }
+    dt { margin-top: 0.8rem; }
+    nav a { margin-left: 1rem; }
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .hero .mu { animation: ink 1.4s ease-out both; }
+    @keyframes ink { from { opacity: 0; } to { opacity: 1; } }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <a class="brand" href="#">Musou LLC</a>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#products">Products</a>
+      <a href="#company">Company</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <div class="hero">
+    <p class="mu" aria-hidden="true">無</p>
+    <h1>Creating from nothing.</h1>
+    <p>Musou is an independent software studio in Chiba, Japan. We make small, carefully built apps for iOS, and we take the time to get them right.</p>
+  </div>
+
+  <section id="about">
+    <h2>About</h2>
+    <p>We started Musou to make a place for creation — somewhere to work with a clear mind, begin from nothing, and let each product take the time it needs.</p>
+    <p>We believe people are happiest with the things they love, and that this is as true of an app as of anything else. So we try to build products with a taste of their own: the kind that comes from a studio's philosophy and accumulated work, and cannot be copied.</p>
+    <p>The name Musou carries three meanings at once.</p>
+    <div class="names">
+      <div><span class="kanji">無創</span><span class="read">to create from nothing</span></div>
+      <div><span class="kanji">無双</span><span class="read">without equal</span></div>
+      <div><span class="kanji">夢想</span><span class="read">to dream</span></div>
+    </div>
+  </section>
+
+  <section id="products">
+    <h2>Products</h2>
+    <div class="product">
+      <div class="icon" aria-hidden="true">時</div>
+      <div>
+        <h3>Kairos</h3>
+        <p class="status">In development — coming to the App Store</p>
+        <p>Alarms and timers, treated as one thing: a moment you want to be told about. Kairos schedules them through AlarmKit, so they ring reliably on the Lock Screen and in the Dynamic Island even when the app is closed, and lays them out on a monthly calendar so you can see your month at a glance.</p>
+        <p>Run several timers at once, group them by what they're for, and set alarms that repeat weekly, monthly, on the second Thursday, or once a year. Everything stays on your device. No account, no server.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="company">
+    <h2>Company</h2>
+    <dl>
+      <dt>Name</dt><dd>Musou LLC (Musou合同会社)</dd>
+      <dt>Founded</dt><dd>March 5, 2026</dd>
+      <dt>Location</dt><dd>Funabashi, Chiba, Japan</dd>
+      <dt>Business</dt><dd>Planning, development and distribution of mobile applications</dd>
+    </dl>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>For anything at all, write to us at <a href="mailto:hello@musoulabs.com">hello@musoulabs.com</a>.</p>
+  </section>
+
+  <footer>
+    <span>© 2026 Musou LLC</span>
+    <span><a href="https://musoulabs.com">musoulabs.com</a></span>
+  </footer>
+
+</div>
+</body>
+</html>
